@@ -32,7 +32,12 @@ export function normalizeProfile(data: ProfileDTO): ProfileType {
     bio,
     twitterUsername,
     publicRepos,
-    repos: [],
+    repos: {
+      page: 1,
+      pageCount: Math.floor(publicRepos / 12),
+      totalCount: publicRepos,
+      items: [],
+    },
   };
 
   return normalizedUser;
